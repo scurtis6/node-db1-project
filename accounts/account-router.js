@@ -58,6 +58,17 @@ router.put('/:id', (req, res) => {
     })
 });
 
-// router.delete('/', (req, res) => {})
+router.delete('/:id', (req, res) => {
+    const { id } = req.params
+    db('accounts')
+    .where({id})
+    .del()
+    .then(acc => {
+        res.status(200).json(acc)
+    })
+    .catch(err => {
+        res.status(500).json({ error: 'failed to remove the account' })
+    })
+});
 
 module.exports = router;
