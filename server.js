@@ -1,8 +1,6 @@
 const express = require('express');
 
-const db = require('./data/dbConfig');
-
-const AccountRouter = require('./accounts/account-router');
+const AccountRouter = require('./accounts/account-router.js');
 
 const server = express();
 
@@ -11,7 +9,7 @@ server.use(express.json());
 server.use('/api/accounts', AccountRouter);
 
 server.get('/', (req, res) => {
-    res.send('<h2>node-db1-project is up and running!!<h2>')
+  res.send('<h3>App is up and running!!!</h3>');
 });
 
 module.exports = server;
